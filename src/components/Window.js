@@ -30,6 +30,18 @@ export class Window extends Component {
 
   /** */
   componentDidMount(prevProps) {
+    this.fetchManifestIfNeeded();
+  }
+
+  /** */
+  componentDidUpdate(prevProps) {
+    const { manifestId } = this.props;
+
+    if (manifestId !== prevProps.manifestId) this.fetchManifestIfNeeded();
+  }
+
+  /** */
+  fetchManifestIfNeeded() {
     const { fetchManifest, manifest, manifestId } = this.props;
     if (manifestId && (!manifest || !manifest.isFetching)) {
       fetchManifest(manifestId);

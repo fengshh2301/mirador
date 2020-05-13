@@ -48,11 +48,13 @@ export class WorkspaceAdd extends React.Component {
     const { addResourcesOpen } = this.state;
 
     const manifestList = Object.keys(manifests).map(manifest => (
-      <ManifestListItem
-        key={manifest}
-        manifestId={manifest}
-        handleClose={() => setWorkspaceAddVisibility(false)}
-      />
+      !manifests[manifest].hide && (
+        <ManifestListItem
+          key={manifest}
+          manifestId={manifest}
+          handleClose={() => setWorkspaceAddVisibility(false)}
+        />
+      )
     ));
 
     return (

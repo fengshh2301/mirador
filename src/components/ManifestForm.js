@@ -57,7 +57,7 @@ export class ManifestForm extends Component {
     const { formValue } = this.state;
     event.preventDefault();
     onSubmit();
-    fetchManifest(formValue);
+    fetchManifest(formValue, { hide: false });
     this.setState({ formValue: '' });
   }
 
