@@ -84,6 +84,15 @@ export class WindowViewSettings extends Component {
             labelPlacement="bottom"
           />
         </MenuItem>
+        <MenuItem className={classes.MenuItem} onClick={() => { this.handleChange('continuous'); handleClose(); }}>
+          <FormControlLabel
+            value="continuous"
+            classes={{ label: windowViewType === 'continuous' ? classes.selectedLabel : classes.label }}
+            control={<BookViewIcon color={windowViewType === 'continuous' ? 'secondary' : undefined} />}
+            label={t('continuous')}
+            labelPlacement="bottom"
+          />
+        </MenuItem>
         <MenuItem className={classes.MenuItem} onClick={() => { this.handleChange('gallery'); handleClose(); }}>
           <FormControlLabel
             value="gallery"
